@@ -1,0 +1,114 @@
+<!doctype html>
+<head>
+
+<style>
+body {
+  background: #999;
+  padding: 40px;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+#bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/static/ml.png') no-repeat center center fixed;
+  background-size: cover;  
+}
+form {
+  position: relative;
+  width: 400px;
+  margin-top:150px;
+  margin-left:450px;
+  background: rgba(128,128,128,.7);
+  padding: 20px 22px;
+  border: 1px solid;
+  border-top-color: rgba(255,255,255,.4);
+  border-left-color: rgba(255,255,255,.4);
+  border-bottom-color: rgba(60,60,60,.4);
+  border-right-color: rgba(60,60,60,.4);
+}
+
+div.title{
+	color: white;
+	font-size: large;
+
+	margin-bottom: 15px;
+}
+.topbar{
+   position:absolute;
+   width:100%;
+   top:0;
+   padding:2px 0;
+   background:rgba(230,230,250,0.75);
+   font-size:40px;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ 
+}
+.head{
+  float:left
+}
+#nav{
+  float:right;
+  margin-right:15px;
+  
+}
+.topbar a{
+   margin:0 0 0 30px;
+   text-decoration:none;
+     color:#0f1772
+}
+.body a {
+   margin:0 0 0 30px;
+   text-decoration:none;
+     color:#0f1772
+}
+.btn {
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    text-align:center;
+    display: inline-block;
+    text-decoration:none;
+    margin: 4px 2px;
+    width:250px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.emb {background-color: rgba(230,230,250,0.75);}
+.emb:hover {background-color: rgba(230,230,250,0.5);}
+</style>
+<title>Upload new File</title>
+</head>
+<body>
+    <div id="bg">
+     <div class="topbar">
+			<div class="wrapper">
+				<span class="title"><img src="/static/ml5.png" height=50px width=50px></span>
+				<nav id="nav">
+					
+					<a href="#/">Home</a>
+					<a href="#/about.html">About</a>
+					<a href="#/contact.html">Contact</a>
+					
+                                        <a href="#/add.html">About Us</a>
+				</nav>
+			</div>
+		</div>
+<form>
+     <center> <div class="title">SELECT MODEL</div></center>
+   <div class="body">
+   <div>LINEAR REGRESSION:<a href="/slr" class="btn emb">Simple Linear Regression</a><a class="btn emb" href="/mlr">Multiple Linear Regression</a></div>
+   <div>LOGISTIC REGRESSION:<a class="btn emb">Logistic Regression</a></div>
+   <div>SUPPORT VECTOR MACHINE:<a class="btn emb">Simple Vector Regression</a><a class="btn emb">Simple Vector Classification</a></div>
+   </div>
+</form>
+
+
+</div>
+
+
+</body>

@@ -1,0 +1,111 @@
+
+
+<head>
+<style>
+body {
+  background: #999;
+  padding: 40px;
+  font-family: "Open Sans Condensed", sans-serif;
+}#bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/static/ml.png') no-repeat center center fixed;
+  background-size: cover;
+     
+}
+div.body{
+     position:relative;
+     background: rgba(128,128,128,.7);
+  padding: 20px 22px;
+  border: 1px solid
+}
+div.accuracy{
+     position:relative;
+     color:white;
+     background:rgba(132,132,132,0.54)
+}
+.topbar{
+   position:absolute;
+   width:100%;
+   top:0;
+   padding:2px 0;
+   background:rgba(230,230,250,0.75);
+   font-size:40px;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ 
+}
+
+.title{
+  float:left
+}
+
+#nav{
+  float:right;
+  margin-right:15px;
+  
+}
+.topbar a{
+   margin:0 0 0 30px;
+   text-decoration:none;
+     color:#0f1772
+}
+</style>
+  <!-- Plotly.js -->
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+ <div id="bg">
+     <div class="topbar">
+			<div class="wrapper">
+				<span class="title"><img src="/static/ml5.png" height=50px width=50px></span>
+				<nav id="nav">
+					
+					<a href="#/">Home</a>
+					<a href="#/about.html">About</a>
+					<a href="#/contact.html">Contact</a>
+					
+                                        <a href="#/add.html">About Us</a>
+				</nav>
+			</div>
+		</div>
+
+
+
+</div>
+<br/>
+   <div class="accuracy">Root Mean Squared Error:{{rmse}}</div>
+   <div class="body">
+  
+  <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+</div>
+  <script>
+    <!-- JAVASCRIPT CODE GOES HERE -->
+   var trace1 = {
+  x:{{x}},
+  y: {{y}},
+  name:'actual',
+  mode: 'markers'
+};
+   var trace2={
+      x:{{x}},
+      y:{{y_pred}},
+      color:'rgba(152, 0, 0, .8)',
+      name:'predicted',
+      mode:'markers+lines'
+}
+
+var data = [ trace1,trace2 ];
+
+var layout = {
+  title:'Simple Linear Regression Scatter Plot'
+};
+
+Plotly.newPlot('myDiv', data, layout);
+  </script>
+</body>
+
+
