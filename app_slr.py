@@ -7,8 +7,10 @@ import csv
 import pandas as pd
 import numpy as np
 from linear_regression import lr
+from linear_regression import *
 from linear_regression import file_import
 lr=lr()
+m_lr=mlr()
 fi=file_import()
 app = Flask(__name__)
 UPLOAD_FOLDER = '/home/simmi'
@@ -61,7 +63,7 @@ def slr():
     return render_template('file_render.html')
 
 @app.route('/mlr',methods=['GET','POST'])
-def mlr():
+def mmlr():
    if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -103,9 +105,34 @@ def mlr():
             #print  len(df.columns)
             header=[]
             sf=df.values.tolist()
+            #print df.columns
             X = df.iloc[:,0:len(df.columns)].values
-            print((X))
-        return render_template('result.html')
+            #print X,Y
+            m = len(X)
+            
+	    x0 = np.ones(m)
+            #print x0
+	    X =  np.append(arr=np.ones((m,1)).astype(int),values=X,axis=1)
+	    #print X
+	# Initial Coefficients
+	    B = np.zeros(len(df.columns)+1)
+            #print B
+	    alpha = 0.0001
+
+            inital_cost = m_lr.cost_function(X, Y, B)
+	    print(inital_cost)
+            newB, cost_history = m_lr.gradient_descent(X, Y, B, alpha, 100000)
+            
+	# New Values of B
+	    print(newB)
+
+	# Final Cost of new B
+	    print(cost_history[-1]) 
+            Y_pred = X.dot(newB)
+            print(m_lr.rmse(Y, Y_pred))
+            print(m_lr.r2_score(Y, Y_pred))
+
+        return render_template('result_m.html',rmse=m_lr.rmse(Y, Y_pred))
    return render_template('file_render.html')
    
 if __name__ == '__main__':
