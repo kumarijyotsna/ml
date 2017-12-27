@@ -117,11 +117,12 @@ def mmlr():
 	# Initial Coefficients
 	    B = np.zeros(len(df.columns)+1)
             #print B
-	    alpha = 0.0001
-
+	    alpha = float(request.form["alpha"])
+            iterations=int(request.form["iterations"])
+            print iterations
             inital_cost = m_lr.cost_function(X, Y, B)
 	    print(inital_cost)
-            newB, cost_history = m_lr.gradient_descent(X, Y, B, alpha, 100000)
+            newB, cost_history = m_lr.gradient_descent(X, Y, B, alpha, iterations)
             
 	# New Values of B
 	    print(newB)
@@ -133,7 +134,7 @@ def mmlr():
             print(m_lr.r2_score(Y, Y_pred))
 
         return render_template('result_m.html',rmse=m_lr.rmse(Y, Y_pred))
-   return render_template('file_render.html')
+   return render_template('file_render_m.html')
    
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
