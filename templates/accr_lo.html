@@ -1,0 +1,124 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>
+
+.container-fluid {
+	width: 100%;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.sidenav {
+    
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    color:black;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.main {
+	margin-left: 300px;
+	font-size: 28px;
+	/* padding: 0px 10px; */
+	color: white;
+	/* background: rgba(132,132,132,0.54); */
+}
+.background {
+	background: linear-gradient( rgba(0, 210, 255, 0.77), rgba(30, 23, 23, 0.5) ), url('/static/ml.png');
+	height: 100%;
+        background-repeat:no-repeat;
+}
+
+.nav {
+
+   height:60px;
+   font-size:30px;
+ background-color:#000;
+}
+.nav a{
+    color: white;
+   text-decoration:none;
+}
+.col-sm-2{
+   text-align:center
+}
+
+.sidenav a:link, a:visited {
+ 
+    width:220px;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.sidenav{
+   font-size:30px;
+}
+.sidenav a:hover, a:active {
+    background-color: grey;
+}
+.nav a:hover, a:active {
+    background-color: #0f90bc !important;
+}
+
+
+</style>
+  <!-- Plotly.js -->
+   
+</head>
+
+<body class="background">
+ <div class="container-fluid">
+     <div class="row nav justify-content-end">
+                <a href="/" class="col-sm-2 nav-item">Home</a>
+		<a href="#graph" class="col-sm-2 nav-item">About</a>
+		<a href="#/contact.html" class="col-sm-2 nav-item">Contact</a>              
+                <a href="#/add.html" class="col-sm-2 nav-item ">About Us</a>
+		
+			</div>
+		</div>
+
+
+
+
+<br/>
+<div class="container-fluid">
+   <div class="row">
+   <div class="sidenav ">Side bar <br>
+    <a href="/accuracy_lo" > Accuracy</a><br>
+<a href="/loss_lo"> LogLoss</a><br>
+    <a href="/matrix_lo">Confusion Matrix</a><br>
+<a href="/report_lo">Classification Report</a><br>
+<a href="/graph_lo">Graph</a><br>
+
+   </div>
+      <div class="main">
+     <div>Accuracy {{ accuracy }} </div>
+</div>
+</div>
+</div>
+</div>
+</body>

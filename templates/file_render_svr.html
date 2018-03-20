@@ -1,0 +1,112 @@
+<!doctype html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<title>Web ML Tool</title>
+
+<style>
+body {
+  background: #999;
+  padding: 40px;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.nav {
+  height:60px;
+   font-size:30px;
+ 
+
+}
+.nav a{
+    color: white;
+   text-decoration:none;
+}
+.col-sm-2{
+   text-align:center;
+}
+
+.nav a:hover, a:active {
+    background-color: black;
+}
+.container{
+   color:white;
+   border-color: rgba(255,255,255,.5);
+   margin-top:120px;
+  background: rgba(128,128,128,.7);
+  max-width:400px;
+  min-width:400px;
+  padding:0px 0px 0px 0px;
+}
+
+.container input, button {
+	border: 1px solid;
+	border-bottom-color: rgba(255,255,255,.5);
+	border-right-color: rgba(60,60,60,.35);
+	border-top-color: rgba(60,60,60,.35);
+	border-left-color: rgba(80,80,80,.45);
+	background: rgba(0,0,0,0.54);
+	margin-top: 16px;
+	 /*margin-left: 8px;*/ 
+	padding: 10px 15px;
+	font: bold .875em/1.25em "Open Sans Condensed", sans-serif;
+	letter-spacing: .075em;
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,.1);
+	margin-bottom: 19px;
+        
+}
+.background {
+	background: linear-gradient( rgba(0, 210, 255, 0.77), rgba(30, 23, 23, 0.5) ), url('/static/ml.png');
+	height: 100%;
+        background-repeat:no-repeat;
+}
+
+</style>
+<title>Upload new File</title>
+</head>
+<body class="background">
+   
+    
+    
+     <div class="nav justify-content-end">
+                <a href="/" class="col-sm-2 nav-item">Home</a>
+		<a href="#graph" class="col-sm-2 nav-item">About</a>
+		<a href="#/contact.html" class="col-sm-2 nav-item">Contact</a>              
+                <a href="#/add.html" class="col-sm-2 nav-item ">About Us</a>
+		
+			</div>
+		
+
+  <div class="container">
+ <form method=post enctype=multipart/form-data>
+      
+    <center> <div class="title">UPLOAD FILE</div></center>
+     <center>
+       
+      <input type=file name=file>
+      <div class="btn">
+      <p>C(Penalty parameter):<br/> <input type = "text" name = "c" /></p>
+      <p>Epsilon:<br/> <input type = "text" name = "epsilon" /></p>
+       <p>Gamma:<br/> <input type = "text" name = "gamma" /></p>
+        <p>Degree:<br/> <input type = "text" name = "degree" /></p>
+         <p>Kernel:<br/><select name="kernel">
+  <option value="linear">linear</option>
+  <option value="rbf">rbf</option>
+  <option value="poly">poly</option>
+  <option value="sigmoid">sigmoid</option>
+</select></p>
+         <p>Train test split:<br/> <input type = "text" name = "split" /></p>
+
+
+   <input type=submit value=Upload></div></center>
+
+
+
+    </form>
+    </div>
+</body>

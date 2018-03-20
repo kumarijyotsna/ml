@@ -1,0 +1,129 @@
+<html>
+<head>
+
+<title> Web ML Tool </title>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+
+<style>
+body {
+  background: #999;
+  padding: 40px;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+#bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+ background: 
+      linear-gradient( rgba(0, 210, 255, 0.5), rgba(255, 0, 0, 0.5) ), url('/static/ml.png');
+  background-size: cover;   
+}
+.nav {
+  height:60px;
+   font-size:30px;
+ 
+}
+.nav a{
+    color: white;
+   text-decoration:none;
+}
+.col-sm-2{
+   text-align:center
+}
+.span3 {
+    height: 300px; overflow: auto; 
+}
+.nav a:hover, a:active {
+    background-color:black;
+}
+
+.background {
+	background: linear-gradient( rgba(0, 210, 255, 0.77), rgba(30, 23, 23, 0.5) ), url('/static/ml.png');
+	height: 100%;
+        background-repeat:no-repeat;
+}
+
+</style>
+</head>
+<body class="background">
+     <div class="row nav justify-content-end">
+                <a href="/" class="col-sm-2 nav-item">Home</a>
+		<a href="#graph" class="col-sm-2 nav-item">About</a>
+		<a href="#/contact.html" class="col-sm-2 nav-item">Contact</a>              
+                <a href="#/add.html" class="col-sm-2 nav-item ">About Us</a>
+		
+			</div>
+<br/>
+<div class="container" >
+   <div class="check table-responsive span3" >
+   <table class="table table-dark table-striped table-hover">
+      <thead class="thead-dark"> <tr><td></td><td>FIELD </td> <td> TYPE </td> <td> SAMPLE </td></tr></thead>
+      <tbody> {% for item in header%}
+     <tr><td><input type="checkbox" name="check[]" value="{{ item[0] }} {{ item[1] }}"></td><td> {{ item[0] }} </td></input><td> {{ item[1] }} </td><td> {{ item[2] }}</td></tr>
+     {% endfor %}
+    </table></div></tbody><br/>
+<button id="getFeatures" class="btn btn-dark">GET FEATURES</button><br/><br/>
+
+<form action="/mlr" method="POST">
+<h3><span class="badge badge-primary">YOU SELECTED:</span></h3>
+<textarea id="feature" value="" name="text" rows="4" style="width:1100px;"></textarea>
+<br/>
+<button  class="btn btn-dark" value="submit">SUBMIT</button>
+</form>
+<div id="selectedInput"></div>
+</div>
+</div>
+<script type="text/javascript", charset="utf-8">
+$(function change() {
+   //var url="/features";
+  
+   var data=[];
+  $('#getFeatures').click(function() {
+    var feature = [];
+    data=[];
+    //var data={};
+    //var datastring=[];
+    $('.check input[type="checkbox"]:checked').each(function() {
+      feature.push($(this).val());
+      data.push($(this).val());
+    });
+    $('#feature').val(data);
+    $('#selectedFeatures').html(feature.join('<br/>'));
+    //$('#selected').html(data.join('<br/>'));
+  
+    //$('#selectedInput').html(" create table 'data'("+ features[0] + " " +features[1]+ ")")
+     $('#selectedInput').html(feature.length);//size of features array
+       
+});
+   //$.post(url,data);
+    //$.post(url,data);
+});
+
+/*function change(t)
+{
+   var url="/features";
+   var data={text:$('#feature').val()};
+   $.post(url,data);
+   $.get(url,data);
+   
+}*/
+</script>
+
+</body>
+</html>

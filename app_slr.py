@@ -47,10 +47,10 @@ def slr():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             #return filepath
             data = pd.read_csv(filepath)
-	X = data.iloc[:,0].values
-	Y = data.iloc[:,1].values
+        X = data.iloc[:,0].values
+        Y = data.iloc[:,1].values
         
-	Y_pred,rmse=lr.lr(X,Y)
+        Y_pred,rmse=lr.lr(X,Y)
         #print rmse
         #print Y_pred   
 	  
@@ -83,7 +83,7 @@ def mmlr():
            
             df = pd.read_csv(filepath)
             df_n=pd.read_csv(filepath)
-	    Y = df.iloc[:,-1].values
+            Y = df.iloc[:,-1].values
            
            
             df.drop(df.columns[len(df.columns)-1],axis=1,inplace=True)
@@ -94,7 +94,7 @@ def mmlr():
               header.append(reader.next())
             header=np.array(header[0])
             for i in range(0,len(df_n.columns)):
-            
+              print i
               if(df_n.dtypes[i]== object):
                
                 df_ne=pd.get_dummies(df_n[header[i]],drop_first=True,prefix=[str(i)],prefix_sep='_')
@@ -109,26 +109,25 @@ def mmlr():
             X = df.iloc[:,0:len(df.columns)].values
             #print X,Y
             m = len(X)
-            
-	    x0 = np.ones(m)
+            x0 = np.ones(m)
             #print x0
-	    X =  np.append(arr=np.ones((m,1)).astype(int),values=X,axis=1)
+            X =  np.append(arr=np.ones((m,1)).astype(int),values=X,axis=1)
 	    #print X
 	# Initial Coefficients
-	    B = np.zeros(len(df.columns)+1)
+            B = np.zeros(len(df.columns)+1)
             #print B
-	    alpha = float(request.form["alpha"])
+            alpha = float(request.form["alpha"])
             iterations=int(request.form["iterations"])
-            print iterations
+            print (iterations)
             inital_cost = m_lr.cost_function(X, Y, B)
-	    print(inital_cost)
+            print (inital_cost)
             newB, cost_history = m_lr.gradient_descent(X, Y, B, alpha, iterations)
             
 	# New Values of B
-	    print(newB)
+            print(newB)
 
 	# Final Cost of new B
-	    print(cost_history[-1]) 
+            print(cost_history[-1]) 
             Y_pred = X.dot(newB)
             print(m_lr.rmse(Y, Y_pred))
             print(m_lr.r2_score(Y, Y_pred))

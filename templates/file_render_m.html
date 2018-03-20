@@ -1,139 +1,103 @@
 <!doctype html>
 <head>
 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<title>Web ML Tool</title>
+
 <style>
 body {
   background: #999;
   padding: 40px;
   font-family: "Open Sans Condensed", sans-serif;
 }
-#bg {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: url('/static/ml.png') no-repeat center center fixed;
-  background-size: cover;  
-}
-form {
-  position: relative;
-  width: 400px;
-  margin-top:150px;
-  margin-left:450px;
-  background: rgba(128,128,128,.7);
-  padding: 20px 22px;
-  border: 1px solid;
-  border-top-color: rgba(255,255,255,.4);
-  border-left-color: rgba(255,255,255,.4);
-  border-bottom-color: rgba(60,60,60,.4);
-  border-right-color: rgba(60,60,60,.4);
-}
 
-form input, form button {
-  width: 300px;
-  border: 1px solid;
-  border-bottom-color: rgba(255,255,255,.5);
-  border-right-color: rgba(60,60,60,.35);
-  border-top-color: rgba(60,60,60,.35);
-  border-left-color: rgba(80,80,80,.45);
-  background:rgba(0,0,0,0.54);
-  margin-top:16px;
-  
-  margin-left:10px;
-  padding: 12px 20px;
-  font: bold .875em/1.25em "Open Sans Condensed", sans-serif;
-  letter-spacing: .075em;
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(0,0,0,.1);
-  margin-bottom: 19px;
-}
-div.title{
-	color: white;
-	font-size: large;
-
-	margin-bottom: 15px;
-}
-
-form input:focus { background-color: rgba(0,0,0,.4); }
-::-webkit-input-placeholder { color: #ccc; text-transform: uppercase; }
-::-moz-placeholder { color: #ccc; text-transform: uppercase; }
-:-ms-input-placeholder { color: #ccc; text-transform: uppercase; }
-form button[type=submit] {
-  width: 248px;
-  margin-bottom: 0;
-  color: white;
-  letter-spacing: .05em;
-  text-shadow: 0 1px 0 #133d3e;
-  text-transform: uppercase;
-  background: black;
-  border-top-color: #9fb5b5;
-  border-left-color: #608586;
-  border-bottom-color: #1b4849;
-  border-right-color: #1e4d4e;
-  cursor: pointer;
-}
-.topbar{
-   position:absolute;
-   width:100%;
-   top:0;
-   padding:2px 0;
-   background:rgba(230,230,250,0.75);
-   font-size:40px;
-   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+.nav {
+  height:60px;
+   font-size:30px;
  
+
 }
-.head{
-  float:left
-}
-#nav{
-  float:right;
-  margin-right:15px;
-  
-}
-.topbar a{
-   margin:0 0 0 30px;
+.nav a{
+    color: white;
    text-decoration:none;
-     color:#0f1772
+}
+.col-sm-2{
+   text-align:center;
+}
+
+.nav a:hover, a:active {
+    background-color: black;
+}
+.container{
+   color:white;
+   border-color: rgba(255,255,255,.5);
+   margin-top:120px;
+  background: rgba(128,128,128,.7);
+  max-width:400px;
+  min-width:400px;
+  padding:0px 0px 0px 0px;
+}
+
+.container input, button {
+	border: 1px solid;
+	border-bottom-color: rgba(255,255,255,.5);
+	border-right-color: rgba(60,60,60,.35);
+	border-top-color: rgba(60,60,60,.35);
+	border-left-color: rgba(80,80,80,.45);
+	background: rgba(0,0,0,0.54);
+	margin-top: 16px;
+	 /*margin-left: 8px;*/ 
+	padding: 10px 15px;
+	font: bold .875em/1.25em "Open Sans Condensed", sans-serif;
+	letter-spacing: .075em;
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,.1);
+	margin-bottom: 19px;
+        
+}
+.background {
+	background: linear-gradient( rgba(0, 210, 255, 0.77), rgba(30, 23, 23, 0.5) ), url('/static/ml.png');
+	height: 100%;
+        background-repeat:no-repeat;
 }
 
 </style>
 <title>Upload new File</title>
 </head>
-<body>
-    <div id="bg">
-     <div class="topbar">
-			<div class="wrapper">
-				<span class="title"><img src="/static/ml5.png" height=100px width=100px></span>
-				<nav id="nav">
-					
-					<a href="/">Home</a>
-					<a href="#/about.html">About</a>
-					<a href="#/contact.html">Contact</a>
-					
-                                        <a href="#/add.html">About Us</a>
-				</nav>
-			</div>
-		</div>
-
-
-
-</div>
+<body class="background">
    
+    
+    
+     <div class="nav justify-content-end">
+                <a href="/" class="col-sm-2 nav-item">Home</a>
+		<a href="#graph" class="col-sm-2 nav-item">About</a>
+		<a href="#/contact.html" class="col-sm-2 nav-item">Contact</a>              
+                <a href="#/add.html" class="col-sm-2 nav-item ">About Us</a>
+		
+			</div>
+		
+
+  <div class="container">
  <form method=post enctype=multipart/form-data>
       
     <center> <div class="title">UPLOAD FILE</div></center>
-      <div class="body">
-       <div class="file"> 
-      <input type=file name=file></div>
+     <center>
+       
+      <input type=file name=file>
       <div class="btn">
-      <p>alpha <input type = "text" name = "alpha" /></p>
-      <p>iterations <input type = "text" name = "iterations" /></p>
+      <p>Alpha:<br/> <input type = "text" name = "alpha" /></p>
+      <p>Iterations:<br/> <input type = "text" name = "iterations" /></p>
 
 
-   <input type=submit value=Upload></div>
+   <input type=submit value=Upload></div></center>
 
-</div>
+
+
     </form>
-
+    </div>
 </body>

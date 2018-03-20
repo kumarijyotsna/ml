@@ -1,84 +1,124 @@
-
-
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 <style>
-body {
-  background: #999;
-  padding: 40px;
-  font-family: "Open Sans Condensed", sans-serif;
-}#bg {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: url('/static/ml.png') no-repeat center center fixed;
-  background-size: cover;
-     
+
+.container-fluid {
+	width: 100%;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-right: auto;
+	margin-left: auto;
 }
-div.body{
-     position:relative;
-     background: rgba(128,128,128,.7);
-  padding: 20px 22px;
-  border: 1px solid
+.sidenav {
+    
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    color:black;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
 }
-div.accuracy{
-     position:relative;
-     color:white;
-     background:rgba(132,132,132,0.54)
+.main {
+	margin-left: 300px;
+	font-size: 28px;
+	/* padding: 0px 10px; */
+	color: white;
+	/* background: rgba(132,132,132,0.54); */
 }
-.topbar{
-   position:absolute;
-   width:100%;
-   top:0;
-   padding:2px 0;
-   background:rgba(230,230,250,0.75);
-   font-size:40px;
-   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+.background {
+ 	background: linear-gradient( rgba(0, 210, 255, 0.77), rgba(30, 23, 23, 0.5) ), url('/static/ml.png');
+	height: 100%;
+        background-repeat:no-repeat;
+}
+
+
+.nav {
  
+   height:60px;
+   font-size:30px;
+ background-color:#000;
 }
-
-.title{
-  float:left
-}
-
-#nav{
-  float:right;
-  margin-right:15px;
-  
-}
-.topbar a{
-   margin:0 0 0 30px;
+.nav a{
+    color: white;
    text-decoration:none;
-     color:#0f1772
+}
+.col-sm-2{
+   text-align:center
+}
+.sidenav a{
+   font-size:30px
+}
+.sidenav a:link, a:visited {
+ 
+    width:220px;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.sidenav a:hover, a:active {
+    background-color: grey;
+}
+.nav a:hover, a:active {
+    background-color: #0f90bc !important;
+}
+
+
+
 }
 </style>
- 
+  <!-- Plotly.js -->
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
-<body>
- <div id="bg">
-     <div class="topbar">
-			<div class="wrapper">
-				<span class="title"><img src="/static/ml5.png" height=50px width=50px></span>
-				<nav id="nav">
-					
-					<a href="#/">Home</a>
-					<a href="#/about.html">About</a>
-					<a href="#/contact.html">Contact</a>
-					
-                                        <a href="#/add.html">About Us</a>
-				</nav>
+<body class="background">
+ <div class="container-fluid">
+     <div class="row nav justify-content-end">
+                <a href="/" class="col-sm-2 nav-item">Home</a>
+		<a href="#graph" class="col-sm-2 nav-item">About</a>
+		<a href="#/contact.html" class="col-sm-2 nav-item">Contact</a>              
+                <a href="#/add.html" class="col-sm-2 nav-item ">About Us</a>
+		
 			</div>
 		</div>
 
-
+<br/>
+<div class="container-fluid">
+   <div class="row">
+   <div class="sidenav">Side bar <br/><br/>
+    <a href="/accuracy"> Accuracy</a><br>
+    <a href="/slr?text={{ n_data }}">Graph</a>
+    
+   </div>
+<div class="col-sm-8 main">
+<div class="accuracy">Root Mean Squared Error:{{rmse}}</div>
 
 </div>
-<br/>
-   <div class="accuracy">Root Mean Squared Error:{{rmse}}</div>
+
    
-  
+   
+  </div>
   
 
 </body>

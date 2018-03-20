@@ -1,12 +1,42 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from numpy import double
 plt.rcParams['figure.figsize'] = (20.0, 10.0)
-
+from sklearn.preprocessing import StandardScaler
 class mlr:
+        def find(self,data):
+          minmax=[]
+          for i in range(len(data[0])):
+            r=[row[i] for row in data]
+            min_val=min(r)
+            max_val=max(r)
+          if (min_val==max_val):
+             max_val=1
+          minmax.append([min_val,max_val])
+          return minmax
+        def standard(self,X):
+           scaler = StandardScaler().fit(X)
+           rescaledX = scaler.transform(X)
+# summarize transformed data
+           np.set_printoptions(precision=3)
+           print(rescaledX)
+           return rescaledX  
+        def normalizer(self,data,minmax): 
+          #print data
+          print minmax[0][0],minmax[0][1]
+          #print data
+          print len(data),len(data[0])
+          for i in range(0,len(data)):
+            for j in range(0,len(data[0])):
+              #print i,j
+              data[i][j]=(data[i][j]-minmax[0][0])/(minmax[0][1]-minmax[0][0])
+              print data[i][j] 
+          return data
         def cost_function(self,X, Y, B):
 	    m = len(Y)
-	    J = np.sum((X.dot(B) - Y) ** 2)/(2 * m)
+            
+	    J = np.double(np.sum((X.dot(B) - Y) ** 2)/(2 * m))
 	    return J
 	
 	def gradient_descent(self,X, Y, B, alpha, iterations):

@@ -1,5 +1,23 @@
 <!doctype html>
+<html lang="en">
 <head>
+
+<title> Web ML Tool </title>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 
 <style>
 body {
@@ -7,63 +25,7 @@ body {
   padding: 40px;
   font-family: "Open Sans Condensed", sans-serif;
 }
-#bg {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: url('/static/ml.png') no-repeat center center fixed;
-  background-size: cover;  
-}
-form {
-  position: relative;
-  width: 400px;
-  margin-top:150px;
-  margin-left:450px;
-  background: rgba(128,128,128,.7);
-  padding: 20px 22px;
-  border: 1px solid;
-  border-top-color: rgba(255,255,255,.4);
-  border-left-color: rgba(255,255,255,.4);
-  border-bottom-color: rgba(60,60,60,.4);
-  border-right-color: rgba(60,60,60,.4);
-}
 
-div.title{
-	color: white;
-	font-size: large;
-
-	margin-bottom: 15px;
-}
-.topbar{
-   position:absolute;
-   width:100%;
-   top:0;
-   padding:2px 0;
-   background:rgba(230,230,250,0.75);
-   font-size:40px;
-   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
- 
-}
-.head{
-  float:left
-}
-#nav{
-  float:right;
-  margin-right:15px;
-  
-}
-.topbar a{
-   margin:0 0 0 30px;
-   text-decoration:none;
-     color:#0f1772
-}
-.body a {
-   margin:0 0 0 30px;
-   text-decoration:none;
-     color:#0f1772
-}
 .btn {
     border: none;
     color: white;
@@ -77,38 +39,162 @@ div.title{
     cursor: pointer;
 }
 
+.nav {
+  height:60px;
+   font-size:30px;
+ 
+}
+.nav a{
+    color: white;
+   text-decoration:none;
+}
+.col-sm-2{
+   text-align:center
+}
 
-.emb {background-color: rgba(230,230,250,0.75);}
+.nav a:hover, a:active {
+    background-color:black;
+}
+
+.container{
+   color:white;
+   border-color: rgba(255,255,255,.5);
+   margin-top:120px;
+  background: rgba(128,128,128,.7);
+  max-width:400px;
+  min-width:400px;
+  padding:0px 0px 0px 0px;
+}
+
+.container input, button {
+	border: 1px solid;
+	border-bottom-color: rgba(255,255,255,.5);
+	border-right-color: rgba(60,60,60,.35);
+	border-top-color: rgba(60,60,60,.35);
+	border-left-color: rgba(80,80,80,.45);
+	background: rgba(0,0,0,0.54);
+	margin-top: 16px;
+	 /*margin-left: 8px;*/ 
+	padding: 10px 15px;
+	font: bold .875em/1.25em "Open Sans Condensed", sans-serif;
+	letter-spacing: .075em;
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,.1);
+	margin-bottom: 19px;
+        
+}
+.emb {background: rgba(0,0,0,0.54);;}
 .emb:hover {background-color: rgba(230,230,250,0.5);}
+.background {
+	background: linear-gradient( rgba(0, 210, 255, 0.77), rgba(30, 23, 23, 0.5) ), url('/static/ml.png');
+	height: 100%;
+        background-repeat:no-repeat;
+}
+.animated {
+          
+            -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+         }
+@keyframes bounceInRight {
+   0% {
+      opacity: 0;
+      transform: translateX(2000px);
+   }
+   60% {
+      opacity: 1;
+      transform: translateX(-30px);
+   }
+   80% {
+      transform: translateX(10px);
+   }
+   100% {
+      transform: translateX(0);
+   }
+} 
+@keyframes bounceInRight {
+            0% {
+               opacity: 0;
+               transform: translateX(2000px);
+            }
+            60% {
+               opacity: 1;
+               transform: translateX(-30px);
+            }
+            80% {
+               transform: translateX(10px);
+            }
+            100% {
+               transform: translateX(0);
+            }
+         }
+         
+         .bounceInRight {
+            -webkit-animation-name: bounceInRight;
+            animation-name: bounceInRight;
+         }
+         @-webkit-keyframes bounceInLeft {
+            0% {
+               opacity: 0;
+               -webkit-transform: translateX(-2000px);
+            }
+            60% {
+               opacity: 1;
+               -webkit-transform: translateX(30px);
+            }
+            80% {
+               -webkit-transform: translateX(-10px);
+            }
+            100% {
+               -webkit-transform: translateX(0);
+            }
+         }
+         
+         @keyframes bounceInLeft {
+            0% {
+               opacity: 0;
+               transform: translateX(-2000px);
+            }
+            60% {
+               opacity: 1;
+               transform: translateX(30px);
+            }
+            80% {
+               transform: translateX(-10px);
+            }
+            100% {
+               transform: translateX(0);
+            }
+         }
+         
+         .bounceInLeft {
+            -webkit-animation-name: bounceInLeft;
+            animation-name: bounceInLeft;
+         }
 </style>
 <title>Upload new File</title>
 </head>
-<body>
-    <div id="bg">
-     <div class="topbar">
-			<div class="wrapper">
-				<span class="title"><img src="/static/ml5.png" height=50px width=50px></span>
-				<nav id="nav">
-					
-					<a href="#/">Home</a>
-					<a href="#/about.html">About</a>
-					<a href="#/contact.html">Contact</a>
-					
-                                        <a href="#/add.html">About Us</a>
-				</nav>
-			</div>
-		</div>
-<form>
-     <center> <div class="title">SELECT MODEL</div></center>
-   <div class="body">
-   <div>LINEAR REGRESSION:<a href="/slr" class="btn emb">Simple Linear Regression</a><a class="btn emb" href="/mlr">Multiple Linear Regression</a></div>
-   <div>LOGISTIC REGRESSION:<a class="btn emb">Logistic Regression</a></div>
-   <div>SUPPORT VECTOR MACHINE:<a class="btn emb">Simple Vector Regression</a><a class="btn emb">Simple Vector Classification</a></div>
+<body class="background">
+   <div class="nav justify-content-end">
+                <a href="/" class="col-sm-2 nav-item">Home</a>
+		<a href="#graph" class="col-sm-2 nav-item">About</a>
+		<a href="#/contact.html" class="col-sm-2 nav-item">Contact</a>              
+                <a href="#/add.html" class="col-sm-2 nav-item ">About Us</a>
+		
    </div>
+<div class="container ">		
+
+<form >
+     <center> <div class="title">SELECT MODEL</div></center>
+   <center>
+   <div class="animated bounceInRight">LINEAR REGRESSION:<br/><a href="/file" class="btn emb ">Simple Linear Regression</a><br><a class="btn emb" href="/file1">Multiple Linear Regression</a></div>
+   <div class="animated bounceInLeft">LOGISTIC REGRESSION:<br/><a href="/file2" class="btn emb">Logistic Regression</a></div>
+   <div class="animated bounceInRight">SUPPORT VECTOR MACHINE:<br/><a class="btn emb" href="/file3">Support Vector Regression</a><br><a class="btn emb" href="/file4">Support Vector Classification</a></div>
+   </center>
 </form>
-
-
 </div>
+
 
 
 </body>
