@@ -5,14 +5,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
 from sklearn.model_selection import learning_curve
-import scipy.io
-import matplotlib.pyplot as plt
-import matplotlib 
+
 import pandas as pd
 import numpy as np
-import pickle
 from sklearn import preprocessing
-from sklearn import utils
+
 from sklearn.utils import shuffle
 from sklearn.model_selection import validation_curve
 from sklearn.metrics import precision_recall_fscore_support as score

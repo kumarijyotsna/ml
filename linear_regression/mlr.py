@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+
 from numpy import double
-plt.rcParams['figure.figsize'] = (20.0, 10.0)
+
 from sklearn.preprocessing import StandardScaler
 class mlr:
         def find(self,data):
