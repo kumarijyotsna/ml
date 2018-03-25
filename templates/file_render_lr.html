@@ -57,7 +57,12 @@ body {
 .background {
 	background: linear-gradient( rgba(0, 210, 255, 0.77), rgba(30, 23, 23, 0.5) ), url('/static/ml.png');
 	height: 100%;
-        background-repeat:no-repeat;
+        background-size:cover;
+height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
 .nav {
@@ -90,7 +95,7 @@ body {
 			</div>
 	
    <div class="container">
- <form method=post enctype=multipart/form-data>
+ <form method=post enctype=multipart/form-data name="frm">
       
     <center> <div class="title">UPLOAD FILE</div></center><br/><br/>
       
@@ -100,8 +105,18 @@ body {
   Regularization parameter(C):<br><input type="text" min="0" max="1" value="0.001" class="slider" id="myRange" name="c"></div>
   <div >Train test split: <br><input type="text" min="1" max="100" value="0.5" class="slider" id="myRange" name="splt"></div>
 
-      <div class="btn">   <input type=submit value=Submit></div>
+      <div class="btn">   <input type=submit value=Submit onclick="return IsEmpty();"></div>
 </center>
     </form>
 </div>
+<script type="text/javascript">
+ function IsEmpty(){
+  if(document.forms['frm'].file.value === "")
+  {
+    alert("select a file");
+    return false;
+  }
+    return true;
+}
+</script>
 </body>

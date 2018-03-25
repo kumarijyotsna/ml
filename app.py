@@ -668,9 +668,11 @@ def svr():
    c=session.get('c',None)
    e=session.get('epsilon',None)
    g=session.get('gamma',None)
-   d=session.get('degree',None)
+   degree=session.get('degree',None)
+   #degree=int(d)
+   print type(degree)
    k=session.get('kernel',None)
-   print (varf),c,e,g,d,k
+   print (varf),c,e,g,degree,k
    data_f=varf.split('/')
    print data_f[-1]
    for x in data_f:
@@ -743,7 +745,7 @@ def svr():
    X = df.iloc[:,0:len(df.columns)].values
    x1=X.flatten()
    x1=list(x1)
-   y_pred,train_sizes,train_scores_svr,test_scores_svr=sv_r.svr(X,Y,c,e,g,d,s,k)
+   y_pred,train_sizes,train_scores_svr,test_scores_svr,accr=sv_r.svr(X,Y,c,e,g,degree,s,k)
    #print matrix[0]
    train_sizes=list(train_sizes)
    train_scores_svr=list(train_scores_svr)
@@ -751,13 +753,28 @@ def svr():
    #print tr_cvm
    #x1=plot_data(X)
       #session['n_data']=n_data
-   '''session['tss']=test_scores_svr
+   session['tss']=test_scores_svr
    session['trss']=train_scores_svr
-   session['ts']=train_sizes'''
+   session['ts']=train_sizes
+   session['accr']=accr
    print x1
    y1=list(Y)
    y_pred=list(y_pred)
    return render_template("result4.html",x=x1,y=y1,y_pred=y_pred,trss=train_scores_svr,tss=test_scores_svr,ts=train_sizes)
+
+@app.route('/graph_svr',methods=['GET','POST'])
+def graph_svr():
+  
+    trn_s=session.get('trss',None)
+    cv_s=session.get('tss',None)
+    t_size=session.get('ts',None)
+
+    return render_template("graph_svr.html",trss=trn_s,tss=cv_s,ts=t_size)
+@app.route('/accr_svr',methods=['GET','POST'])
+def accr_svr():
+  accr=session.get('accr',None)
+  return render_template('accr_svr.html',accr=accr)
+   
 
 @app.route('/file4',methods=['GET', 'POST'])
 def index4():  
@@ -840,9 +857,9 @@ def svc():
    c=session.get('c',None)
    e=session.get('epsilon',None)
    g=session.get('gamma',None)
-   d=session.get('degree',None)
+   degree=session.get('degree',None)
    k=session.get('kernel',None)
-   print (varf),c,e,g,d,k
+   print (varf),c,e,g,degree,k
    data_f=varf.split('/')
    print data_f[-1]
    for x in data_f:
@@ -915,7 +932,7 @@ def svc():
    X = df.iloc[:,0:len(df.columns)].values
    #x1=X.flatten()
    #x=list(x)
-   y_pred,cm,train_sizes,train_scores,test_scores,p,r,f,su,ll,acc=sv_c.svm(X,Y,s,k,c,g,d)
+   y_pred,cm,train_sizes,train_scores,test_scores,p,r,f,su,ll,acc=sv_c.svm(X,Y,s,k,c,g,degree)
    #print matrix[0]
    train_sizes=list(train_sizes)
    train_scores=list(train_scores)

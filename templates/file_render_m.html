@@ -63,7 +63,12 @@ body {
 .background {
 	background: linear-gradient( rgba(0, 210, 255, 0.77), rgba(30, 23, 23, 0.5) ), url('/static/ml.png');
 	height: 100%;
-        background-repeat:no-repeat;
+        background-size:cover;
+height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
 </style>
@@ -83,21 +88,31 @@ body {
 		
 
   <div class="container">
- <form method=post enctype=multipart/form-data>
+ <form method=post enctype=multipart/form-data name='frm'>
       
     <center> <div class="title">UPLOAD FILE</div></center>
      <center>
        
       <input type=file name=file>
       <div class="btn">
-      <p>Alpha:<br/> <input type = "text" name = "alpha" /></p>
-      <p>Iterations:<br/> <input type = "text" name = "iterations" /></p>
+      <p>Alpha:<br/> <input type = "text" name = "alpha" value="0.001"/></p>
+      <p>Iterations:<br/> <input type = "text" name = "iterations" value="10000" /></p>
 
 
-   <input type=submit value=Upload></div></center>
+   <input type=submit value=Upload onclick="return IsEmpty();"></div></center>
 
 
 
     </form>
     </div>
+<script type="text/javascript">
+ function IsEmpty(){
+  if(document.forms['frm'].file.value === "")
+  {
+    alert("select a file");
+    return false;
+  }
+    return true;
+}
+</script>
 </body>

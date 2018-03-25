@@ -25,7 +25,7 @@ class svm():
 
 # Fitting SVM to the Training set
 
-     classifier = SVC(kernel = kernel,probability=True)
+     classifier = SVC(kernel = kernel,probability=True,C=c,gamma=g,degree=d)
      classifier.fit(X_train, y_train)
 
 # Predicting the Test set results

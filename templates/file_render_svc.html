@@ -63,7 +63,12 @@ body {
 .background {
 	background: linear-gradient( rgba(0, 210, 255, 0.77), rgba(30, 23, 23, 0.5) ), url('/static/ml.png');
 	height: 100%;
-        background-repeat:no-repeat;
+        background-size:cover;
+height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
 </style>
@@ -83,30 +88,40 @@ body {
 		
 
   <div class="container">
- <form method=post enctype=multipart/form-data>
+ <form method=post enctype=multipart/form-data name="frm">
       
     <center> <div class="title">UPLOAD FILE</div></center>
      <center>
        
       <input type=file name=file>
       <div class="btn">
-      <p>C(Penalty parameter):<br/> <input type = "text" name = "c" /></p>
-      <p>Epsilon:<br/> <input type = "text" name = "epsilon" /></p>
-       <p>Gamma:<br/> <input type = "text" name = "gamma" /></p>
-        <p>Degree:<br/> <input type = "text" name = "degree" /></p>
+      <p>C(Penalty parameter):<br/> <input type = "text" name = "c" value="0.001"/></p>
+      <p>Epsilon:<br/> <input type = "text" name = "epsilon" value="0.1" /></p>
+       <p>Gamma:<br/> <input type = "text" name = "gamma" value="0.1"/></p>
+        <p>Degree:<br/> <input type = "text" name = "degree" value="3"/></p>
          <p>Kernel:<br/><select name="kernel">
   <option value="linear">linear</option>
   <option value="rbf">rbf</option>
   <option value="poly">poly</option>
   <option value="sigmoid">sigmoid</option>
 </select></p>
-         <p>Train test split:<br/> <input type = "text" name = "split" /></p>
+         <p>Train test split:<br/> <input type = "text" name = "split" value="0.5"/></p>
 
 
-   <input type=submit value=Upload></div></center>
+   <input type=submit value=Upload onclick="return IsEmpty();"></div></center>
 
 
 
     </form>
     </div>
+<script type="text/javascript">
+ function IsEmpty(){
+  if(document.forms['frm'].file.value === "")
+  {
+    alert("select a file");
+    return false;
+  }
+    return true;
+}
+</script>
 </body>
